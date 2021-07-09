@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.lee.book.ui.home.HomeFragment"
+        android:name="com.lee.book.ui.home.NewFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_new" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
