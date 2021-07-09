@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.lee.book.ui.home.NewFragment"
-        android:label="@string/title_home"
+        android:name="com.lee.book.ui.new.NewFragment"
+        android:label="@string/title_new"
         tools:layout="@layout/fragment_new" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.lee.book.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_search"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.lee.book.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_bookmark"
         tools:layout="@layout/fragment_notifications" />
 </navigation>
