@@ -5,21 +5,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.lee.book.databinding.ItemNewBookBinding
+import com.lee.book.databinding.ItemBookBinding
 import com.lee.book.entitiy.Book
 
 class NewAdapter(private val newBookList : ArrayList<Book>) : RecyclerView.Adapter<NewAdapter.NewViewHolder>(){
 
-    class NewViewHolder(view : View, itemNewBookBinding: ItemNewBookBinding): RecyclerView.ViewHolder(view) {
-        val image  = itemNewBookBinding.newBookImage
-        val title  = itemNewBookBinding.newBookTitle
-        val subTitle  = itemNewBookBinding.newBookSubtitle
-        val url  = itemNewBookBinding.newBookUrl
-        val isbn3  = itemNewBookBinding.newBookIsbn3
+    class NewViewHolder(view : View, itemBookBinding: ItemBookBinding): RecyclerView.ViewHolder(view) {
+        val image  = itemBookBinding.newBookImage
+        val title  = itemBookBinding.newBookTitle
+        val subTitle  = itemBookBinding.newBookSubtitle
+        val url  = itemBookBinding.newBookUrl
+        val isbn3  = itemBookBinding.newBookIsbn3
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewViewHolder {
-        val itemNewViewHolder = ItemNewBookBinding.inflate(LayoutInflater.from(parent.context))
+        val itemNewViewHolder = ItemBookBinding.inflate(LayoutInflater.from(parent.context))
         val view = itemNewViewHolder.root
 
         return NewViewHolder(view, itemNewViewHolder)

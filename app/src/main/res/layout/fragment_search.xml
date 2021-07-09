@@ -14,11 +14,10 @@
         android:layout_margin="8dp"
         android:queryHint="search"/>
 
-    <TextView
-        android:id="@+id/temptext"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_recycler_view"
         android:layout_margin="8dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="12dp"/>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
