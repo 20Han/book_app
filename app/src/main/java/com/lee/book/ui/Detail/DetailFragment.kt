@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.lee.book.databinding.FragmentDetailBinding
+import com.lee.book.entitiy.Book
 import com.lee.book.ui.notifications.BookmarkViewModel
 
 class DetailFragment : Fragment() {
@@ -37,7 +38,19 @@ class DetailFragment : Fragment() {
             fragmentDetailBinding.rating.text = it.rating
             fragmentDetailBinding.desc.text = it.desc
             fragmentDetailBinding.price.text = it.price
+            fragmentDetailBinding.url.text = it.url
             Glide.with(this).load(it.image).into(fragmentDetailBinding.newBookImage)
+            fragmentDetailBinding.bookMarkButton.visibility = View.VISIBLE
+            fragmentDetailBinding.bookMarkButton.setOnClickListener { v ->
+                bookmarkViewModel.saveBookMark(Book(
+                    it.title,
+                    it.subtitle,
+                    it.isbn13,
+                    it.price,
+                    it.image,
+                    it.url
+                ))
+            }
         })
 
         detailViewModel.getDetailBook(arguments?.getString("isbn13"))
