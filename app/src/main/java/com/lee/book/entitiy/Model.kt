@@ -2,7 +2,7 @@ package com.lee.book.entitiy
 
 data class Book(
     var title: String,
-    var subTitle: String,
+    var subtitle: String,
     var isbn13: String,
     var price: String,
     var image: String,

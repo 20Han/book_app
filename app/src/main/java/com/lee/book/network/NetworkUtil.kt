@@ -27,7 +27,7 @@ class NetworkUtil(){
         fun getDetailBookResult(@Path("isbn13") isbn13 : String): Call<DetailBook>?
     }
 
-    suspend fun getNewBook() : NewBooks?{
+    fun getNewBook() : NewBooks?{
         val retrofit = Retrofit.Builder()
             .baseUrl(apiBaseUrl)
             .addConverterFactory(GsonConverterFactory.create())
@@ -39,7 +39,7 @@ class NetworkUtil(){
         return newBookResponse?.body()
     }
 
-    suspend fun searchBook(title : String, page : String) : SearchBooks?{
+    fun searchBook(title : String, page : String) : SearchBooks?{
         val retrofit = Retrofit.Builder()
             .baseUrl(apiBaseUrl)
             .addConverterFactory(GsonConverterFactory.create())
@@ -51,7 +51,7 @@ class NetworkUtil(){
         return searchBookResponse?.body()
     }
 
-    suspend fun getNewBookApi(isbn13: String) : DetailBook?{
+    fun getNewBookApi(isbn13: String) : DetailBook?{
         val retrofit = Retrofit.Builder()
             .baseUrl(apiBaseUrl)
             .addConverterFactory(GsonConverterFactory.create())
