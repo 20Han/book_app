@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.lee.book.databinding.ItemNewBookBinding
 import com.lee.book.entitiy.Book
 
@@ -29,6 +30,7 @@ class NewAdapter(private val newBookList : ArrayList<Book>) : RecyclerView.Adapt
         holder.subTitle.text = newBookList[position].subtitle
         holder.url.text = newBookList[position].url
         holder.isbn3.text = newBookList[position].isbn13
+        Glide.with(holder.itemView).load(newBookList[position].image).into(holder.image)
     }
 
     override fun getItemCount() = newBookList.size

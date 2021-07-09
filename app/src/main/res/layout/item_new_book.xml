@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/new_book_image"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:contentDescription="Book Image"/>
 
     <LinearLayout
