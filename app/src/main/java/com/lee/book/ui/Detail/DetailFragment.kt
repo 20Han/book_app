@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.lee.book.databinding.FragmentDetailBinding
 import com.lee.book.entitiy.Book
-import com.lee.book.ui.notifications.BookmarkViewModel
+import com.lee.book.ui.bookmark.BookmarkViewModel
 
 class DetailFragment : Fragment() {
     private var _fragmentDetailBinding: FragmentDetailBinding? = null
