@@ -3,12 +3,21 @@ package com.lee.book.ui.search
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.lee.book.R
 import com.lee.book.databinding.ItemBookBinding
 import com.lee.book.entitiy.Book
+import com.lee.book.ui.DetailFragment
 
-class SearchAdapter(private val searchBookList : ArrayList<Book>) : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>(){
+class SearchAdapter(
+        private val searchBookList : ArrayList<Book>,
+        private val fragmentManager : FragmentManager
+) : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>(){
 
     class SearchViewHolder(view : View, itemBookBinding: ItemBookBinding ): RecyclerView.ViewHolder(view) {
         val image  = itemBookBinding.newBookImage
@@ -31,6 +40,13 @@ class SearchAdapter(private val searchBookList : ArrayList<Book>) : RecyclerView
         holder.url.text = searchBookList[position].url
         holder.isbn3.text = searchBookList[position].isbn13
         Glide.with(holder.itemView).load(searchBookList[position].image).into(holder.image)
+
+        holder.itemView.setOnClickListener {
+            fragmentManager.commit {
+                replace<DetailFragment>(R.id.nav_host_fragment)
+                addToBackStack("detail_fragment")
+            }
+        }
     }
 
     override fun getItemCount() = searchBookList.size

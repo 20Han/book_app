@@ -1,5 +1,6 @@
 package com.lee.book.ui.search
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -42,10 +43,10 @@ class SearchFragment : Fragment() {
         })
 
         fragmentSearchBinding.searchRecyclerView.layoutManager = LinearLayoutManager(context)
-        val adapter = SearchAdapter(searchBookList)
+        val adapter = SearchAdapter(searchBookList, parentFragmentManager)
         fragmentSearchBinding.searchRecyclerView.adapter = adapter
 
-        searchViewModel.searchBookList.observe(viewLifecycleOwner, Observer {
+        searchViewModel.searchBookList.observe(viewLifecycleOwner, {
             searchBookList.clear()
             searchBookList.addAll(it)
             adapter.notifyDataSetChanged()
