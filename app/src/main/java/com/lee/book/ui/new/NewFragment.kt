@@ -24,18 +24,18 @@ class NewFragment : Fragment() {
     ): View? {
         _fragmentNewBinding = FragmentNewBinding.inflate(inflater)
 
-        val newRecyclerView = fragmentNewBinding.newRecyclerView
-        newRecyclerView.layoutManager = LinearLayoutManager(context)
+        fragmentNewBinding.newRecyclerView.layoutManager = LinearLayoutManager(context)
         val newAdapter = NewAdapter(newBooks)
-        newRecyclerView.adapter = newAdapter
+        fragmentNewBinding.newRecyclerView.adapter = newAdapter
 
-        newViewModel.bookList.observe(viewLifecycleOwner, Observer {
+        newViewModel.newBookList.observe(viewLifecycleOwner, Observer {
             newBooks.clear()
             newBooks.addAll(it)
             newAdapter.notifyDataSetChanged()
         })
 
-        newViewModel.getNewBooks()
+        if(newBooks.isEmpty())
+            newViewModel.getNewBooks()
 
         return fragmentNewBinding.root
     }

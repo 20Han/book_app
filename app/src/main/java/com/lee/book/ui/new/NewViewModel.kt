@@ -8,12 +8,12 @@ class NewViewModel(
     private val newRepository: INewRepository = NewRepository()
 ) : ViewModel() {
 
-    private val _bookList = MutableLiveData<List<Book>>()
-    val bookList: LiveData<List<Book>> = _bookList
+    private val _newBookList = MutableLiveData<List<Book>>()
+    val newBookList: LiveData<List<Book>> = _newBookList
 
     fun getNewBooks(){
         viewModelScope.launch {
-            _bookList.value = newRepository.getNewBooks()
+            _newBookList.value = newRepository.getNewBooks()
         }
     }
 }
