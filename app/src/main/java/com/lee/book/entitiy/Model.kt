@@ -36,5 +36,6 @@ data class DetailBook(
     var rating : String,
     var desc : String,
     var price : String,
-    var image : String
+    var image : String,
+    var url : String
 )
