@@ -34,7 +34,8 @@ class NewFragment : Fragment() {
             newAdapter.notifyDataSetChanged()
         })
 
-        newViewModel.getNewBooks()
+        if(newBooks.isEmpty())
+            newViewModel.getNewBooks()
 
         return fragmentNewBinding.root
     }

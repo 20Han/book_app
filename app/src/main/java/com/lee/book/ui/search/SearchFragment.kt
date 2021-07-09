@@ -29,7 +29,7 @@ class SearchFragment : Fragment() {
         fragmentSearchBinding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if(query != null)
-                    searchViewModel.searchBooks(query, "1")
+                    searchViewModel.searchBooks(query, "1", context)
                 else
                     Toast.makeText(context, "query is empty", Toast.LENGTH_SHORT).show()
 
