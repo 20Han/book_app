@@ -18,7 +18,7 @@ class NetworkUtil(){
     }
 
     interface SearchBookApi {
-        @GET("1.0/search/{title}/{")
+        @GET("1.0/search/{title}/{page}")
         fun getSearchBookResult(@Path("title") title : String, @Path("page") page : String): Call<SearchBooks>?
     }
 

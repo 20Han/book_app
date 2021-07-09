@@ -29,7 +29,7 @@ class NewFragment : Fragment() {
         val newAdapter = NewAdapter(newBooks)
         newRecyclerView.adapter = newAdapter
 
-        newViewModel.bookList.observe(viewLifecycleOwner, Observer {
+        newViewModel.newBookList.observe(viewLifecycleOwner, Observer {
             newBooks.clear()
             newBooks.addAll(it)
             newAdapter.notifyDataSetChanged()
