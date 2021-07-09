@@ -25,7 +25,7 @@ class NewFragment : Fragment() {
         _fragmentNewBinding = FragmentNewBinding.inflate(inflater)
 
         fragmentNewBinding.newRecyclerView.layoutManager = LinearLayoutManager(context)
-        val newAdapter = NewAdapter(newBooks)
+        val newAdapter = NewAdapter(newBooks, parentFragmentManager)
         fragmentNewBinding.newRecyclerView.adapter = newAdapter
 
         newViewModel.newBookList.observe(viewLifecycleOwner, Observer {

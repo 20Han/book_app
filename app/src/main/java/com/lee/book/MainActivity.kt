@@ -1,12 +1,14 @@
 package com.lee.book
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.lee.book.databinding.ActivityMainBinding
+import com.lee.book.ui.notifications.BookmarkViewModel
 
 class MainActivity : AppCompatActivity() {
     private var _activityMainBinding : ActivityMainBinding? = null

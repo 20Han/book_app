@@ -51,7 +51,7 @@ class NetworkUtil(){
         return searchBookResponse?.body()
     }
 
-    fun getNewBookApi(isbn13: String) : DetailBook?{
+    fun getDetailBook(isbn13: String) : DetailBook?{
         val retrofit = Retrofit.Builder()
             .baseUrl(apiBaseUrl)
             .addConverterFactory(GsonConverterFactory.create())

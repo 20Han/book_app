@@ -1,18 +1,17 @@
 package com.lee.book.ui.search
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.add
 import androidx.fragment.app.commit
-import androidx.fragment.app.replace
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.lee.book.R
 import com.lee.book.databinding.ItemBookBinding
 import com.lee.book.entitiy.Book
-import com.lee.book.ui.DetailFragment
+import com.lee.book.ui.Detail.DetailFragment
 
 class SearchAdapter(
         private val searchBookList : ArrayList<Book>,
@@ -43,7 +42,11 @@ class SearchAdapter(
 
         holder.itemView.setOnClickListener {
             fragmentManager.commit {
-                replace<DetailFragment>(R.id.nav_host_fragment)
+                val detailFragment = DetailFragment()
+                val bundle = Bundle()
+                bundle.putString("isbn13", searchBookList[position].isbn13)
+                detailFragment.arguments = bundle
+                replace(R.id.nav_host_fragment, detailFragment)
                 addToBackStack("detail_fragment")
             }
         }
