@@ -1,4 +1,4 @@
-package com.lee.book.ui.Detail
+package com.lee.book.ui.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,7 +1,6 @@
 package com.lee.book.ui.new
 
 import android.os.Bundle
-import android.text.TextUtils.replace
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.lee.book.R
 import com.lee.book.databinding.ItemBookBinding
 import com.lee.book.entitiy.Book
-import com.lee.book.ui.Detail.DetailFragment
+import com.lee.book.ui.detail.DetailFragment
 
 class NewAdapter(
     private val newBookList : ArrayList<Book>,

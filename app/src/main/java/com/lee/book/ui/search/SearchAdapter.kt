@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.lee.book.R
 import com.lee.book.databinding.ItemBookBinding
 import com.lee.book.entitiy.Book
-import com.lee.book.ui.Detail.DetailFragment
+import com.lee.book.ui.detail.DetailFragment
 
 class SearchAdapter(
         private val searchBookList : ArrayList<Book>,

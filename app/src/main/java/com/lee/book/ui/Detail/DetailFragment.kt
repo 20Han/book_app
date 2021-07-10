@@ -1,4 +1,4 @@
-package com.lee.book.ui.Detail
+package com.lee.book.ui.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
-import com.lee.book.R
 import com.lee.book.databinding.FragmentDetailBinding
 import com.lee.book.entitiy.Book
 import com.lee.book.entitiy.DetailBook

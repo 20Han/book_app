@@ -1,4 +1,4 @@
-package com.lee.book.ui.Detail
+package com.lee.book.ui.detail
 
 import com.lee.book.entitiy.DetailBook
 import com.lee.book.network.NetworkUtil
