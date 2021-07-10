@@ -23,5 +23,9 @@ class BookmarkViewModel : ViewModel() {
         _bookMarkedBooks.value?.remove(book)
     }
 
+    fun isRegisteredBookmark(book : Book) : Boolean{
+        return bookMarkedBooks.value?.contains(book)!= null && bookMarkedBooks.value?.contains(book)!!
+    }
+
 
 }

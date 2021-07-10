@@ -8,8 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
+import com.lee.book.R
 import com.lee.book.databinding.FragmentDetailBinding
 import com.lee.book.entitiy.Book
+import com.lee.book.entitiy.DetailBook
 import com.lee.book.ui.bookmark.BookmarkViewModel
 
 class DetailFragment : Fragment() {
@@ -26,31 +28,7 @@ class DetailFragment : Fragment() {
         _fragmentDetailBinding = FragmentDetailBinding.inflate(inflater)
 
         detailViewModel.detailBook.observe(viewLifecycleOwner, {
-            fragmentDetailBinding.title.text = it.title
-            fragmentDetailBinding.subtitle.text = it.subtitle
-            fragmentDetailBinding.author.text = it.authors
-            fragmentDetailBinding.publisher.text = it.publisher
-            fragmentDetailBinding.language.text = it.language
-            fragmentDetailBinding.isbn10.text = it.isbn10
-            fragmentDetailBinding.isbn13.text = it.isbn13
-            fragmentDetailBinding.pages.text = it.pages
-            fragmentDetailBinding.year.text = it.year
-            fragmentDetailBinding.rating.text = it.rating
-            fragmentDetailBinding.desc.text = it.desc
-            fragmentDetailBinding.price.text = it.price
-            fragmentDetailBinding.url.text = it.url
-            Glide.with(this).load(it.image).into(fragmentDetailBinding.newBookImage)
-            fragmentDetailBinding.bookMarkButton.visibility = View.VISIBLE
-            fragmentDetailBinding.bookMarkButton.setOnClickListener { v ->
-                bookmarkViewModel.saveBookMark(Book(
-                    it.title,
-                    it.subtitle,
-                    it.isbn13,
-                    it.price,
-                    it.image,
-                    it.url
-                ))
-            }
+            setLayout(it)
         })
 
         detailViewModel.getDetailBook(arguments?.getString("isbn13"))
@@ -61,5 +39,49 @@ class DetailFragment : Fragment() {
     override fun onDestroyView() {
         _fragmentDetailBinding = null
         super.onDestroyView()
+    }
+
+    private fun setLayout(it : DetailBook){
+        val book = Book(
+                it.title,
+                it.subtitle,
+                it.isbn13,
+                it.price,
+                it.image,
+                it.url
+        )
+
+        //detail view setting
+        fragmentDetailBinding.title.text = it.title
+        fragmentDetailBinding.subtitle.text = it.subtitle
+        fragmentDetailBinding.author.text = it.authors
+        fragmentDetailBinding.publisher.text = it.publisher
+        fragmentDetailBinding.language.text = it.language
+        fragmentDetailBinding.isbn10.text = it.isbn10
+        fragmentDetailBinding.isbn13.text = it.isbn13
+        fragmentDetailBinding.pages.text = it.pages
+        fragmentDetailBinding.year.text = it.year
+        fragmentDetailBinding.rating.text = it.rating
+        fragmentDetailBinding.desc.text = it.desc
+        fragmentDetailBinding.price.text = it.price
+        fragmentDetailBinding.url.text = it.url
+        Glide.with(this).load(it.image).into(fragmentDetailBinding.newBookImage)
+
+        //button setting
+        fragmentDetailBinding.bookMarkButton.visibility = View.VISIBLE
+
+
+        fragmentDetailBinding.bookMarkButton.setOnCheckedChangeListener { buttonView, isChecked ->
+            if(isChecked){
+                buttonView.setBackgroundResource(R.drawable.ic_bookmark_on)
+                bookmarkViewModel.saveBookMark(book)
+            }else{
+                buttonView.setBackgroundResource(R.drawable.ic_bookmark_off)
+                bookmarkViewModel.deleteBookMark(book)
+            }
+        }
+
+        if(bookmarkViewModel.isRegisteredBookmark(book))
+            fragmentDetailBinding.bookMarkButton.isChecked = true
     }
 }
