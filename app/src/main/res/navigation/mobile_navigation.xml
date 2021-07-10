@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.lee.book.ui.notifications.NotificationsFragment"
+        android:name="com.lee.book.ui.bookmark.BookmarkFragment"
         android:label="@string/title_bookmark"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_bookmark" />
 </navigation>
