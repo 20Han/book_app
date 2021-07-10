@@ -1,4 +1,4 @@
-package com.lee.book.ui.Detail
+package com.lee.book.ui.detail
 
 import com.lee.book.entitiy.DetailBook
 import com.lee.book.network.NetworkUtil
@@ -9,10 +9,10 @@ interface IDetailRepository{
     suspend fun getDetailBook(isbn13 : String) : DetailBook?
 }
 
-class DetailRepository : IDetailRepository{
+class DetailRepository : IDetailRepository {
     private val networkUtil = NetworkUtil()
     override suspend fun getDetailBook(isbn13: String): DetailBook? {
-        return withContext(Dispatchers.IO){
+        return withContext(Dispatchers.IO) {
             networkUtil.getDetailBook(isbn13)
         }
     }

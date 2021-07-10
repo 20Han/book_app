@@ -1,4 +1,4 @@
-package com.lee.book.ui.Detail
+package com.lee.book.ui.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -20,5 +20,4 @@ class DetailViewModel(
                 _detailBook.value = detailRepository.getDetailBook(isbn13)
         }
     }
-
 }

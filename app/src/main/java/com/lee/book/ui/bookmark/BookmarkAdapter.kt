@@ -1,21 +1,16 @@
 package com.lee.book.ui.bookmark
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.commit
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.lee.book.R
 import com.lee.book.databinding.ItemBookBinding
 import com.lee.book.entitiy.Book
-import com.lee.book.ui.Detail.DetailFragment
 
 class BookmarkAdapter(
-    private val bookmarkList : ArrayList<Book>,
-    private val fragmentManager : FragmentManager
+    private val bookmarkList: ArrayList<Book>
 ) : RecyclerView.Adapter<BookmarkAdapter.BookmarkViewHolder>(){
 
     class BookmarkViewHolder(view : View, itemBookBinding: ItemBookBinding): RecyclerView.ViewHolder(view) {
@@ -41,14 +36,9 @@ class BookmarkAdapter(
         Glide.with(holder.itemView).load(bookmarkList[position].image).into(holder.image)
 
         holder.itemView.setOnClickListener {
-            fragmentManager.commit {
-                val detailFragment = DetailFragment()
-                val bundle = Bundle()
-                bundle.putString("isbn13", bookmarkList[position].isbn13)
-                detailFragment.arguments = bundle
-                replace(R.id.nav_host_fragment, detailFragment)
-                addToBackStack("detail_fragment")
-            }
+            val isbn13 = bookmarkList[position].isbn13
+            val action = BookmarkFragmentDirections.actionNavigationBookmarkToNavigationDetail3(isbn13)
+            it.findNavController().navigate(action)
         }
     }
 

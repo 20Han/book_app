@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lee.book.databinding.FragmentNewBinding
 import com.lee.book.entitiy.Book
@@ -25,10 +24,10 @@ class NewFragment : Fragment() {
         _fragmentNewBinding = FragmentNewBinding.inflate(inflater)
 
         fragmentNewBinding.newRecyclerView.layoutManager = LinearLayoutManager(context)
-        val newAdapter = NewAdapter(newBooks, parentFragmentManager)
+        val newAdapter = NewAdapter(newBooks)
         fragmentNewBinding.newRecyclerView.adapter = newAdapter
 
-        newViewModel.newBookList.observe(viewLifecycleOwner, Observer {
+        newViewModel.newBookList.observe(viewLifecycleOwner, {
             newBooks.clear()
             newBooks.addAll(it)
             newAdapter.notifyDataSetChanged()

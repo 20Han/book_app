@@ -3,23 +3,65 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_new">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_new"
         android:name="com.lee.book.ui.new.NewFragment"
         android:label="@string/title_new"
-        tools:layout="@layout/fragment_new" />
+        tools:layout="@layout/fragment_new" >
+        <action
+            android:id="@+id/action_navigation_new_to_navigation_detail"
+            app:destination="@id/navigation_detail"
+            app:popUpTo="@id/navigation_new" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_search"
         android:name="com.lee.book.ui.search.SearchFragment"
         android:label="@string/title_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_navigation_search_to_navigation_detail22"
+            app:destination="@id/navigation_detail2"
+            app:popUpTo="@id/navigation_search" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_bookmark"
         android:name="com.lee.book.ui.bookmark.BookmarkFragment"
         android:label="@string/title_bookmark"
-        tools:layout="@layout/fragment_bookmark" />
+        tools:layout="@layout/fragment_bookmark" >
+        <action
+            android:id="@+id/action_navigation_bookmark_to_navigation_detail3"
+            app:destination="@id/navigation_detail3"
+            app:popUpTo="@id/navigation_bookmark" />
+    </fragment>
+
+    <fragment
+    android:id="@+id/navigation_detail"
+    android:name="com.lee.book.ui.detail.DetailFragment"
+    android:label="@string/title_detail"
+    tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="isbn13"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_detail2"
+        android:name="com.lee.book.ui.detail.DetailFragment"
+        android:label="@string/title_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="isbn13"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_detail3"
+        android:name="com.lee.book.ui.detail.DetailFragment"
+        android:label="@string/title_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument android:name="isbn13"
+            app:argType="string" />
+    </fragment>
 </navigation>
