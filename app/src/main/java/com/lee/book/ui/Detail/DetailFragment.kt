@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.lee.book.databinding.FragmentDetailBinding
 import com.lee.book.entitiy.Book
@@ -18,6 +19,7 @@ class DetailFragment : Fragment() {
     private val fragmentDetailBinding get() = _fragmentDetailBinding!!
     private val bookmarkViewModel : BookmarkViewModel by activityViewModels()
     private val detailViewModel : DetailViewModel by viewModels()
+    private val args : DetailFragmentArgs by navArgs()
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -30,7 +32,7 @@ class DetailFragment : Fragment() {
             setLayout(it)
         })
 
-        detailViewModel.getDetailBook(arguments?.getString("isbn13"))
+        detailViewModel.getDetailBook(args.isbn13)
 
         return fragmentDetailBinding.root
     }

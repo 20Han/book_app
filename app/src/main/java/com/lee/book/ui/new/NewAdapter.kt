@@ -1,21 +1,16 @@
 package com.lee.book.ui.new
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.commit
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.lee.book.R
 import com.lee.book.databinding.ItemBookBinding
 import com.lee.book.entitiy.Book
-import com.lee.book.ui.detail.DetailFragment
 
 class NewAdapter(
-    private val newBookList : ArrayList<Book>,
-    private val fragmentManager : FragmentManager
+    private val newBookList: ArrayList<Book>
 ) : RecyclerView.Adapter<NewAdapter.NewViewHolder>(){
 
     class NewViewHolder(view : View, itemBookBinding: ItemBookBinding): RecyclerView.ViewHolder(view) {
@@ -41,14 +36,9 @@ class NewAdapter(
         Glide.with(holder.itemView).load(newBookList[position].image).into(holder.image)
 
         holder.itemView.setOnClickListener {
-            fragmentManager.commit {
-                val detailFragment = DetailFragment()
-                val bundle = Bundle()
-                bundle.putString("isbn13", newBookList[position].isbn13)
-                detailFragment.arguments = bundle
-                replace(R.id.nav_host_fragment, detailFragment)
-                addToBackStack("detail_fragment")
-            }
+            val isbn13 = newBookList[position].isbn13
+            val action = NewFragmentDirections.actionNavigationNewToNavigationDetail(isbn13)
+            it.findNavController().navigate(action)
         }
     }
 

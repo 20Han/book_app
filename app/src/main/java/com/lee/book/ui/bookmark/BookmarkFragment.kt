@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lee.book.databinding.FragmentBookmarkBinding
-import com.lee.book.databinding.FragmentDetailBinding
 import com.lee.book.entitiy.Book
 
 class BookmarkFragment : Fragment() {
@@ -24,7 +23,7 @@ class BookmarkFragment : Fragment() {
     ): View? {
         _fragmentBookmarkBinding = FragmentBookmarkBinding.inflate(inflater)
         fragmentBookmarkBinding.bookmarkRecyclerView.layoutManager = LinearLayoutManager(context)
-        val adapter = BookmarkAdapter(bookmarkList, parentFragmentManager)
+        val adapter = BookmarkAdapter(bookmarkList)
         fragmentBookmarkBinding.bookmarkRecyclerView.adapter = adapter
 
         bookmarkViewModel.bookMarkedBooks.observe(viewLifecycleOwner, {

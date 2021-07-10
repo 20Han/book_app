@@ -20,5 +20,4 @@ class DetailViewModel(
                 _detailBook.value = detailRepository.getDetailBook(isbn13)
         }
     }
-
 }
