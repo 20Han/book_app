@@ -61,6 +61,7 @@
         android:name="com.lee.book.ui.detail.DetailFragment"
         android:label="@string/title_detail"
         tools:layout="@layout/fragment_detail" >
-        <argument android:name="isbn13" />
+        <argument android:name="isbn13"
+            app:argType="string" />
     </fragment>
 </navigation>

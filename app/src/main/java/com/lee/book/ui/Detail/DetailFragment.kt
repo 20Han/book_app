@@ -72,7 +72,7 @@ class DetailFragment : Fragment() {
         fragmentDetailBinding.bookMarkButton.visibility = View.VISIBLE
 
 
-        fragmentDetailBinding.bookMarkButton.setOnCheckedChangeListener { buttonView, isChecked ->
+        fragmentDetailBinding.bookMarkButton.setOnCheckedChangeListener { _, isChecked ->
             if(isChecked){
                 bookmarkViewModel.saveBookMark(book)
             }else{

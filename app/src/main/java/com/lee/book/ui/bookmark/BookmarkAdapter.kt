@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.lee.book.databinding.ItemBookBinding
 import com.lee.book.entitiy.Book
-import com.lee.book.ui.new.NewFragmentDirections
 
 class BookmarkAdapter(
     private val bookmarkList: ArrayList<Book>
