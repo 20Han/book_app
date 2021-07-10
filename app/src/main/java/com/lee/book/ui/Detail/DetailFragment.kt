@@ -73,10 +73,8 @@ class DetailFragment : Fragment() {
 
         fragmentDetailBinding.bookMarkButton.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){
-                buttonView.setBackgroundResource(R.drawable.ic_bookmark_on)
                 bookmarkViewModel.saveBookMark(book)
             }else{
-                buttonView.setBackgroundResource(R.drawable.ic_bookmark_off)
                 bookmarkViewModel.deleteBookMark(book)
             }
         }
