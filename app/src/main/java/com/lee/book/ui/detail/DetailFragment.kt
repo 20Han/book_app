@@ -1,6 +1,7 @@
 package com.lee.book.ui.detail
 
 import android.os.Bundle
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,7 +33,13 @@ class DetailFragment : Fragment() {
             setLayout(it)
         })
 
+        detailViewModel.detailBookMemo.observe(viewLifecycleOwner, {
+            fragmentDetailBinding.memo.text = Editable.Factory.getInstance().newEditable(it.memoString)
+        })
+
+
         detailViewModel.getDetailBook(args.isbn13)
+        detailViewModel.getDetailBookMemo(args.isbn13)
 
         return fragmentDetailBinding.root
     }
@@ -40,6 +47,7 @@ class DetailFragment : Fragment() {
 
 
     override fun onDestroyView() {
+        detailViewModel.saveDetailBookMemo(fragmentDetailBinding.memo.text.toString())
         _fragmentDetailBinding = null
         super.onDestroyView()
     }
@@ -61,6 +69,7 @@ class DetailFragment : Fragment() {
     }
 
     private fun setLayout(it : DetailBook){
+        fragmentDetailBinding.infoContainer.visibility = View.VISIBLE
         val book = Book(
                 it.title,
                 it.subtitle,

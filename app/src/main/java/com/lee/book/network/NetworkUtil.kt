@@ -10,7 +10,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 class NetworkUtil(){
-    val apiBaseUrl = "https://api.itbook.store/"
+    private val apiBaseUrl = "https://api.itbook.store/"
 
     interface NewBookApi {
         @GET("1.0/new")

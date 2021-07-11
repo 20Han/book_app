@@ -14,10 +14,28 @@ class DetailViewModel(
     private val _detailBook = MutableLiveData<DetailBook>()
     val detailBook: LiveData<DetailBook> = _detailBook
 
+    private val _detailBookMemo = MutableLiveData<Memo>()
+    val detailBookMemo: LiveData<Memo> = _detailBookMemo
+
+
     fun getDetailBook(isbn13 : String?){
         viewModelScope.launch {
             if(isbn13 != null)
                 _detailBook.value = detailRepository.getDetailBook(isbn13)
+        }
+    }
+
+    fun getDetailBookMemo(isbn13 : String?){
+        viewModelScope.launch {
+            if(isbn13 != null)
+                _detailBookMemo.value = detailRepository.getDetailBookMemo(isbn13) ?: Memo(isbn13, "")
+        }
+    }
+
+    fun saveDetailBookMemo(memoString : String){
+        viewModelScope.launch {
+            _detailBookMemo.value?.memoString = memoString
+            detailRepository.saveDetailBookMemo(_detailBookMemo.value)
         }
     }
 }
