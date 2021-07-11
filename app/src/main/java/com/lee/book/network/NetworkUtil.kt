@@ -34,9 +34,12 @@ class NetworkUtil(){
             .build()
         val getNewBookApi = retrofit.create(NewBookApi::class.java)
 
-        val newBookResponse = getNewBookApi.getNewBookResult()?.execute()
-
-        return newBookResponse?.body()
+        return try {
+            getNewBookApi.getNewBookResult()?.execute()?.body()
+        }catch (e : Exception){
+            e.printStackTrace()
+            null
+        }
     }
 
     fun searchBook(title : String, page : String) : SearchBooks?{
@@ -46,9 +49,12 @@ class NetworkUtil(){
             .build()
         val searchBookApi = retrofit.create(SearchBookApi::class.java)
 
-        val searchBookResponse = searchBookApi.getSearchBookResult(title, page)?.execute()
-
-        return searchBookResponse?.body()
+        return try {
+            searchBookApi.getSearchBookResult(title, page)?.execute()?.body()
+        }catch (e: Exception){
+            e.printStackTrace()
+            null
+        }
     }
 
     fun getDetailBook(isbn13: String) : DetailBook?{
@@ -59,8 +65,11 @@ class NetworkUtil(){
 
         val getDetailBookApi = retrofit.create(DetailBookApi::class.java)
 
-        val detailBookResponse = getDetailBookApi.getDetailBookResult(isbn13)?.execute()
-
-        return detailBookResponse?.body()
+        return try{
+            getDetailBookApi.getDetailBookResult(isbn13)?.execute()?.body()
+        }catch (e : Exception){
+            e.printStackTrace()
+            null
+        }
     }
 }
