@@ -20,6 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:name=".ui.search.RecentQueryProvider"
+            android:authorities="com.lee.book.ui.search.RecentQueryProvider" />
     </application>
 
 </manifest>
