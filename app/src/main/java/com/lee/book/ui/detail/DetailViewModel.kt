@@ -17,7 +17,6 @@ class DetailViewModel(
     private val _detailBookMemo = MutableLiveData<Memo>()
     val detailBookMemo: LiveData<Memo> = _detailBookMemo
 
-
     fun getDetailBook(isbn13 : String?){
         viewModelScope.launch {
             if(isbn13 != null)

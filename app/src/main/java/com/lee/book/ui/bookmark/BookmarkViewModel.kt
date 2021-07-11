@@ -10,16 +10,16 @@ class BookmarkViewModel : ViewModel() {
     private val _bookMarkedBooks = MutableLiveData<ArrayList<Book>>()
     val bookMarkedBooks: LiveData<ArrayList<Book>> = _bookMarkedBooks
 
-    fun saveBookMark(book : Book){
-        _bookMarkedBooks.value = _bookMarkedBooks.value ?: ArrayList()
+    init {
+        _bookMarkedBooks.value = ArrayList()
+    }
 
+    fun saveBookMark(book : Book){
         if(bookMarkedBooks.value?.contains(book)== null || !bookMarkedBooks.value?.contains(book)!!)
             bookMarkedBooks.value?.add(book)
     }
 
     fun deleteBookMark(book: Book){
-        _bookMarkedBooks.value = _bookMarkedBooks.value ?: ArrayList()
-
         _bookMarkedBooks.value?.remove(book)
     }
 

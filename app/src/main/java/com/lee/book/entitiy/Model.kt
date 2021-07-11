@@ -1,7 +1,6 @@
 package com.lee.book.entitiy
 
 import com.google.gson.annotations.SerializedName
-import org.json.JSONObject
 
 data class Book(
     var title: String,
