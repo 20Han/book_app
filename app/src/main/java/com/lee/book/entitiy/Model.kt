@@ -1,5 +1,7 @@
 package com.lee.book.entitiy
 
+import com.google.gson.annotations.SerializedName
+
 data class Book(
     var title: String,
     var subtitle: String,
@@ -37,5 +39,11 @@ data class DetailBook(
     var desc : String,
     var price : String,
     var image : String,
-    var url : String
+    var url : String,
+    var pdf : Pdf?
+)
+
+data class Pdf(
+        @SerializedName("Free eBook")
+        var freeEBook : String
 )

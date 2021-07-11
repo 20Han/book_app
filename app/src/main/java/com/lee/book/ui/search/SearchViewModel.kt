@@ -16,8 +16,9 @@ class SearchViewModel(
 
     private val _searchBookList = MutableLiveData<List<Book>>()
     val searchBookList: LiveData<List<Book>> = _searchBookList
+    var page = 0
 
-    private var isSearching = AtomicBoolean(false)
+    var isSearching = AtomicBoolean(false)
 
 
     fun searchBooks(title: String, page: String, context: Context?) {
@@ -31,9 +32,11 @@ class SearchViewModel(
 
             val searchResult = searchRepository.searchBooks(title, page)
             if(searchResult.isEmpty())
-                Toast.makeText(context, "No Result for $title", Toast.LENGTH_LONG).show()
-            else
+                Toast.makeText(context, "No Result for title: $title, page:$page", Toast.LENGTH_LONG).show()
+            else {
                 _searchBookList.value = searchRepository.searchBooks(title, page)
+                this@SearchViewModel.page = page.toInt()
+            }
 
             isSearching.set(false)
         }

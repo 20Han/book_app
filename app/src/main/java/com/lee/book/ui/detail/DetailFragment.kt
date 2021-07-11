@@ -1,6 +1,7 @@
 package com.lee.book.ui.detail
 
 import android.os.Bundle
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,17 +33,43 @@ class DetailFragment : Fragment() {
             setLayout(it)
         })
 
+        detailViewModel.detailBookMemo.observe(viewLifecycleOwner, {
+            fragmentDetailBinding.memo.text = Editable.Factory.getInstance().newEditable(it.memoString)
+        })
+
+
         detailViewModel.getDetailBook(args.isbn13)
+        detailViewModel.getDetailBookMemo(args.isbn13)
 
         return fragmentDetailBinding.root
     }
 
+
+
     override fun onDestroyView() {
+        detailViewModel.saveDetailBookMemo(fragmentDetailBinding.memo.text.toString())
         _fragmentDetailBinding = null
         super.onDestroyView()
     }
 
+    override fun onResume() {
+        val book = detailViewModel.detailBook.value
+
+        if(book != null)
+            fragmentDetailBinding.bookMarkButton.isChecked = bookmarkViewModel.isRegisteredBookmark(Book(
+                    book.title,
+                    book.subtitle,
+                    book.isbn13,
+                    book.price,
+                    book.image,
+                    book.url
+            ))
+
+        super.onResume()
+    }
+
     private fun setLayout(it : DetailBook){
+        fragmentDetailBinding.infoContainer.visibility = View.VISIBLE
         val book = Book(
                 it.title,
                 it.subtitle,
@@ -66,6 +93,7 @@ class DetailFragment : Fragment() {
         fragmentDetailBinding.desc.text = it.desc
         fragmentDetailBinding.price.text = it.price
         fragmentDetailBinding.url.text = it.url
+        fragmentDetailBinding.pdf.text = it.pdf?.freeEBook
         Glide.with(this).load(it.image).into(fragmentDetailBinding.newBookImage)
 
         //button setting
@@ -80,7 +108,6 @@ class DetailFragment : Fragment() {
             }
         }
 
-        if(bookmarkViewModel.isRegisteredBookmark(book))
-            fragmentDetailBinding.bookMarkButton.isChecked = true
+        fragmentDetailBinding.bookMarkButton.isChecked = bookmarkViewModel.isRegisteredBookmark(book)
     }
 }
