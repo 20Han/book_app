@@ -6,14 +6,13 @@
     android:gravity="center">
 
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fillViewport="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:fillViewport="true">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/info_container"
@@ -21,108 +20,296 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:orientation="vertical"
-            android:gravity="center_horizontal"
             android:visibility="gone">
+
             <ImageView
                 android:id="@+id/new_book_image"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
-                android:contentDescription="Book Image"/>
+                android:contentDescription="Book Image" />
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/subtitle"
+            <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp" />
+                android:padding="10dp">
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1.5"
+                        android:text="subtitle"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/subtitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="4"
+                        android:textSize="16sp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1.5"
+                        android:text="author"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/author"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="4"
+                        android:textSize="16sp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1.5"
+                        android:text="publisher"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/publisher"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="4"
+                        android:textSize="12sp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1.5"
+                        android:text="language"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/language"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="4"
+                        android:textSize="12sp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1.5"
+                        android:text="isbn10"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/isbn10"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="4"
+                        android:textSize="12sp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1.5"
+                        android:text="isbn13"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/isbn13"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="4"
+                        android:textSize="12sp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1.5"
+                        android:text="pages"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/pages"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="4"
+                        android:textSize="12sp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1.5"
+                        android:text="year"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/year"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="4"
+                        android:textSize="12sp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1.5"
+                        android:text="rating"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/rating"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="4"
+                        android:textSize="12sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1.5"
+                        android:text="desc"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/desc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="4"
+                        android:textSize="12sp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1.5"
+                        android:text="price"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="4"
+                        android:textSize="12sp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1.5"
+                        android:text="url"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/url"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="4"
+                        android:textSize="12sp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1.5"
+                        android:text="pdf"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/pdf"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="4"
+                        android:textSize="12sp" />
+                </TableRow>
+            </TableLayout>
 
             <TextView
-                android:id="@+id/author"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/publisher"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/language"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/isbn10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/isbn13"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/pages"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/year"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/rating"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/desc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/price"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/url"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/pdf"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="12sp" />
+                android:layout_marginTop="30dp"
+                android:text="MEMO"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/memo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
+                android:layout_marginBottom="20dp"
                 android:autofillHints="memo"
                 android:inputType="none"
-                android:layout_marginBottom="20dp"/>
+                android:textSize="12sp" />
         </LinearLayout>
     </ScrollView>
 
