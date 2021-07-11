@@ -65,7 +65,7 @@ class SearchFragment : Fragment() {
                     if(this@SearchFragment.page == searchViewModel.page) {
                         this@SearchFragment.page += 1
                         searchViewModel.searchBooks(query, page.toString(), context)
-                    }else{
+                    }else if(!searchViewModel.isSearching.get()){
                         Toast.makeText(context, "end of search result", Toast.LENGTH_LONG).show()
                     }
                 }

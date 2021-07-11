@@ -18,7 +18,7 @@ class SearchViewModel(
     val searchBookList: LiveData<List<Book>> = _searchBookList
     var page = 0
 
-    private var isSearching = AtomicBoolean(false)
+    var isSearching = AtomicBoolean(false)
 
 
     fun searchBooks(title: String, page: String, context: Context?) {
